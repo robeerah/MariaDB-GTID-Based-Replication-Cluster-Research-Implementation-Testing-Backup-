@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mariadb-node1:
+    image: mariadb:11.4
+    container_name: mariadb-node1
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword123
+    networks:
+      mariadb-cluster-net:
+        ipv4_address: 172.19.0.2
+
+  mariadb-node2:
+    image: mariadb:11.4
+    container_name: mariadb-node2
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword123
+    networks:
+      mariadb-cluster-net:
+        ipv4_address: 172.19.0.3
+
+  mariadb-node3:
+    image: mariadb:11.4
+    container_name: mariadb-node3
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword123
+    networks:
+      mariadb-cluster-net:
+        ipv4_address: 172.19.0.4
+
+networks:
+  mariadb-cluster-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
