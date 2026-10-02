@@ -1,0 +1,6 @@
+[mariadb]
+server_id=2
+log_bin=mariadb-bin
+gtid_domain_id=0
+gtid_strict_mode=ON
+log_slave_updates=ON
