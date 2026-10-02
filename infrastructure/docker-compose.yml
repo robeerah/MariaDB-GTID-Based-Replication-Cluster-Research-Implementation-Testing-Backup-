@@ -6,6 +6,8 @@ services:
     container_name: mariadb-node1
     environment:
       MARIADB_ROOT_PASSWORD: rootpassword123
+    volumes:
+      - ../config/node1.cnf:/etc/mysql/mariadb.conf.d/99-custom.cnf
     networks:
       mariadb-cluster-net:
         ipv4_address: 172.19.0.2
@@ -15,6 +17,8 @@ services:
     container_name: mariadb-node2
     environment:
       MARIADB_ROOT_PASSWORD: rootpassword123
+    volumes:
+      - ../config/node2.cnf:/etc/mysql/mariadb.conf.d/99-custom.cnf
     networks:
       mariadb-cluster-net:
         ipv4_address: 172.19.0.3
@@ -24,6 +28,8 @@ services:
     container_name: mariadb-node3
     environment:
       MARIADB_ROOT_PASSWORD: rootpassword123
+    volumes:
+      - ../config/node3.cnf:/etc/mysql/mariadb.conf.d/99-custom.cnf
     networks:
       mariadb-cluster-net:
         ipv4_address: 172.19.0.4
